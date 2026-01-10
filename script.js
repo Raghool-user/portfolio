@@ -6,7 +6,12 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
-
+const renderer = new THREE.WebGLRenderer({ 
+    alpha: true, 
+    antialias: true 
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('canvas-container').appendChild(renderer.domElement);
 const geometry = new THREE.BufferGeometry();
 const vertices = [];
 for (let i = 0; i < 2000; i++) {
@@ -35,3 +40,10 @@ reveals.forEach(el => {
         onEnter: () => el.classList.add('active')
     });
 });
+function animate() {
+    requestAnimationFrame(animate);
+    particles.rotation.y += 0.001;
+    renderer.render(scene, camera);
+}
+animate();
+
