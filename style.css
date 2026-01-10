@@ -1,4 +1,68 @@
-/* Add these to your existing style.css */
+:root {
+    --primary: #3b82f6;
+    --accent: #60a5fa;
+    --dark-bg: #0f172a;
+    --light-bg: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 2rem;
+    font-weight: 500;
+}
+
+/* Sections */
+.section { padding: 6rem 0; }
+.bg-light { background-color: var(--light-bg); }
+.section-title { text-align: center; margin-bottom: 3.5rem; font-size: 2.5rem; }
 
 .education-grid {
     display: grid;
@@ -6,23 +70,33 @@
     gap: 1.5rem;
 }
 
-.cert-grid {
+.project-grid, .cert-grid, .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
+/* Cards */
+.card, .project-card, .skill-category {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.highlight { color: var(--primary); }
+
 .location {
     font-size: 0.9rem;
     color: var(--text-muted);
-    margin-top: 5px;
     font-style: italic;
 }
 
-/* Adjusting Nav for the extra links */
-@media (max-width: 992px) {
-    .nav-links li a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-    }
+/* Burger Menu */
+.burger { display: none; cursor: pointer; }
+.burger div { width: 25px; height: 3px; background: var(--text-main); margin: 5px; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .burger { display: block; }
 }
