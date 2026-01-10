@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghool M | Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
+
     <nav class="navbar">
         <div class="container">
             <h1 class="logo">RM</h1>
@@ -18,19 +21,14 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
         </div>
     </nav>
 
     <header id="about" class="hero">
-        <div class="container">
-            <h2>Hi, I'm <span class="highlight">Raghool M</span></h2>
-            <p>Computer Science Engineering Student & Full-Stack Developer</p>
-            <p class="summary">Motivated student with strong foundations in software development, data structures, and algorithms. Proficient in Python, Java, and Web Technologies.</p>
+        <div class="container" data-aos="fade-up">
+            <h2 class="glitch-text">Hi, I'm <span>Raghool M</span></h2>
+            <p class="role">Computer Science Engineering Student</p>
+            <p class="summary">Motivated developer with strong foundations in software development, data structures, and algorithms[cite: 5]. Proficient in Python, Java, and AIML concepts[cite: 6].</p>
             <div class="socials">
                 <a href="https://github.com/Raghool-user" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -41,35 +39,39 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <h3 class="section-title">Experience</h3>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Web Development Intern</h4>
-                    <span>June 2025 - Aug 2025</span>
+            <h3 class="section-title" data-aos="fade-right">Experience</h3>
+            <div class="timeline">
+                <div class="card" data-aos="zoom-in-up">
+                    <div class="card-header">
+                        <h4>Web Development Intern</h4>
+                        <span class="date">June 2025 - Aug 2025 [cite: 25]</span>
+                    </div>
+                    <h5>Rail Infotech Services, Southern Railways [cite: 22]</h5>
+                    <ul>
+                        <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and PHP[cite: 26].</li>
+                        <li>Assisted in Educational Institutional management applications[cite: 27].</li>
+                        <li>Enhanced efficiency via UI/UX improvements for administrative tools[cite: 28].</li>
+                    </ul>
                 </div>
-                <h5>Rail Infotech Services, Southern Railways</h5>
-                <ul>
-                    <li>Designed and developed responsive web interfaces using HTML, CSS, JavaScript, and PHP.</li>
-                    <li>Maintained web applications for Educational Institutional management.</li>
-                    <li>Collaborated on UI/UX improvements for internal administrative tools.</li>
-                </ul>
             </div>
         </div>
     </section>
 
     <section id="projects" class="section bg-light">
         <div class="container">
-            <h3 class="section-title">Projects</h3>
+            <h3 class="section-title" data-aos="fade-left">Projects</h3>
             <div class="project-grid">
-                <div class="project-card">
-                    <h4>Cloud-Based File Storage</h4>
-                    <p>Secure web application for uploading and sharing files with user authentication.</p>
-                    <span class="tags">HTML • CSS • JS • SQL</span>
+                <div class="project-card" data-aos="flip-left">
+                    <div class="project-icon"><i class="fas fa-cloud"></i></div>
+                    <h4>Cloud-Based Storage</h4>
+                    <p>Secure web application for cloud-based file management and sharing[cite: 30].</p>
+                    <span class="tags">HTML • CSS • JS • SQL [cite: 30]</span>
                 </div>
-                <div class="project-card">
-                    <h4>Expense Tracker App</h4>
-                    <p>Financial tool with budget alerts and data visualization using Chart.js.</p>
-                    <span class="tags">JavaScript • Chart.js • CSS</span>
+                <div class="project-card" data-aos="flip-right" data-aos-delay="200">
+                    <div class="project-icon"><i class="fas fa-wallet"></i></div>
+                    <h4>Expense Tracker</h4>
+                    <p>Financial monitoring tool with data visualization via Chart.js[cite: 33, 34].</p>
+                    <span class="tags">JS • Chart.js • CSS [cite: 32]</span>
                 </div>
             </div>
         </div>
@@ -77,15 +79,15 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h3 class="section-title">Technical Skills</h3>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Languages</h4>
-                    <p>Python, Java, C, C++, JavaScript, PHP, SQL</p>
+            <h3 class="section-title" data-aos="fade-up">Skills & Certifications</h3>
+            <div class="skills-wrapper">
+                <div class="skill-category" data-aos="fade-right">
+                    <h4><i class="fas fa-code"></i> Languages</h4>
+                    <p>Python, Java, C, C++, JavaScript, PHP, SQL [cite: 36]</p>
                 </div>
-                <div class="skill-category">
-                    <h4>Cloud & Tools</h4>
-                    <p>Google Cloud, Oracle Cloud, Git, VS Code</p>
+                <div class="skill-category" data-aos="fade-left">
+                    <h4><i class="fas fa-certificate"></i> Certifications [cite: 38]</h4>
+                    <p>Google Data Analytics, Google Cloud Engineering, NVIDIA Deep Learning[cite: 39].</p>
                 </div>
             </div>
         </div>
@@ -93,11 +95,12 @@
 
     <footer id="contact">
         <div class="container">
-            <p>Contact: +91 8608383248 | raghoolbecse@gmail.com</p>
-            <p>&copy; 2026 Raghool M. All rights reserved.</p>
+            <p>Ready to collaborate? Let's connect.</p>
+            <p>+91 8608383248 [cite: 1] | raghoolbecse@gmail.com [cite: 2]</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
