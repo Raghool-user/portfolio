@@ -179,3 +179,29 @@ footer {
     .nav-links { display: none; }
     .burger { display: block; }
 }
+/* Existing styles... */
+
+.role {
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.work-description {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Ensure cards and titles react on hover as requested previously */
+h2:hover, h3:hover, h4:hover, h5:hover, .role:hover {
+    color: var(--accent);
+    transform: scale(1.02);
+    transition: 0.3s ease;
+}
+
+/* Rest of the style.css stays exactly as you provided */
+
