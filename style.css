@@ -1,3 +1,28 @@
+/* Background styling */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Keep it at the bottom */
+    pointer-events: none; /* Allows you to click links "through" the background */
+}
+
+/* Wrapper to ensure content sits on top */
+.main-content {
+    position: relative;
+    z-index: 1; 
+}
+
+/* Navbar styling */
+.navbar {
+    background: rgba(2, 6, 23, 0.9); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Stays above everything */
+}
 :root {
     --primary: #3b82f6;
     --bg-dark: #020617;
@@ -47,3 +72,4 @@ body {
 
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .tech-tags { color: var(--primary); font-weight: bold; font-size: 0.85rem; }
+
