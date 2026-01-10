@@ -3,7 +3,7 @@ const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const icon = themeToggle.querySelector('i');
 
-// Check for saved theme
+// Check for saved theme in LocalStorage
 const savedTheme = localStorage.getItem('theme') || 'dark';
 body.setAttribute('data-theme', savedTheme);
 updateIcon(savedTheme);
@@ -25,9 +25,9 @@ function updateIcon(theme) {
     }
 }
 
-// Scroll Reveal Transition Logic
+// Scroll Reveal Transition Logic using Intersection Observer
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.15 // Section reveals when 15% visible
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -38,9 +38,10 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Select all elements with the .reveal class
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Navbar shadow on scroll
+// Navbar shadow and background adjustment on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -49,3 +50,22 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = "none";
     }
 });
+
+// Mobile Burger Menu Toggle
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+if(burger) {
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        if(nav.classList.contains('active')) {
+            nav.style.display = 'flex';
+            nav.style.flexDirection = 'column';
+            nav.style.position = 'absolute';
+            nav.style.top = '70px';
+            nav.style.width = '100%';
+            nav.style.background = 'var(--bg-main)';
+        } else {
+            nav.style.display = 'none';
+        }
+    });
+}
