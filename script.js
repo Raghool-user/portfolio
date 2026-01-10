@@ -1,62 +1,72 @@
-// Initialize Animations
-AOS.init({
-    duration: 1000,
-    once: true
-});
+// Register GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-// Particle Background System
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
+// 3D Three.js Scene Setup
+let scene, camera, renderer, particles;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function initThree() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('three-container').appendChild(renderer.domElement);
 
-let particlesArray = [];
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
+    // Create Constellation
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    for (let i = 0; i < 1500; i++) {
+        vertices.push(THREE.MathUtils.randFloatSpread(2000)); // x
+        vertices.push(THREE.MathUtils.randFloatSpread(2000)); // y
+        vertices.push(THREE.MathUtils.randFloatSpread(2000)); // z
     }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(37, 99, 235, 0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    
+    const material = new THREE.PointsMaterial({ 
+        color: 0x3b82f6, 
+        size: 2,
+        transparent: true,
+        opacity: 0.6
+    });
+    
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    camera.position.z = 1000;
 }
 
-function init() {
-    for (let i = 0; i < 80; i++) {
-        particlesArray.push(new Particle());
-    }
+function animateThree() {
+    requestAnimationFrame(animateThree);
+    particles.rotation.y += 0.001;
+    particles.rotation.x += 0.0005;
+    renderer.render(scene, camera);
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-    }
-    requestAnimationFrame(animate);
+// GSAP Scroll Animations
+function initGSAP() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(el => {
+        gsap.to(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                onEnter: () => el.classList.add('active')
+            }
+        });
+    });
+
+    // Hero Text Animation
+    gsap.from(".hero-title", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
+    gsap.from(".summary", { duration: 1.2, delay: 0.5, opacity: 0, y: 20 });
 }
 
-init();
-animate();
+// Initialize
+initThree();
+animateThree();
+initGSAP();
 
 // Handle Resize
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 });
