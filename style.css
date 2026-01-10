@@ -21,6 +21,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .container {
@@ -39,6 +40,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .navbar .container {
@@ -57,13 +59,38 @@ body {
     color: var(--text-main);
     margin-left: 2rem;
     font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--primary);
 }
 
 /* Sections */
 .section { padding: 6rem 0; }
 .bg-light { background-color: var(--light-bg); }
-.section-title { text-align: center; margin-bottom: 3.5rem; font-size: 2.5rem; }
 
+/* Hover effect for ALL headings */
+h2, h3, h4, h5 {
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-block;
+}
+
+h2:hover, h3:hover, h4:hover, h5:hover {
+    color: var(--primary);
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.section-title { 
+    text-align: center; 
+    margin-bottom: 3.5rem; 
+    font-size: 2.5rem;
+    display: block; /* Overriding inline-block for titles */
+}
+
+/* Grid Layouts */
 .education-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -76,12 +103,20 @@ body {
     gap: 2rem;
 }
 
-/* Cards */
+/* Cards with Interaction */
 .card, .project-card, .skill-category {
     background: var(--glass);
     border: 1px solid var(--glass-border);
     padding: 2rem;
     border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover, .project-card:hover, .skill-category:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .highlight { color: var(--primary); }
@@ -92,11 +127,50 @@ body {
     font-style: italic;
 }
 
-/* Burger Menu */
-.burger { display: none; cursor: pointer; }
-.burger div { width: 25px; height: 3px; background: var(--text-main); margin: 5px; }
+/* Burger Menu Fixed */
+.burger { display: none; cursor: pointer; z-index: 1100; }
+.burger div { 
+    width: 25px; 
+    height: 3px; 
+    background: var(--text-main); 
+    margin: 5px; 
+    transition: all 0.3s ease;
+}
 
 @media (max-width: 768px) {
-    .nav-links { display: none; }
+    .nav-links { 
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        background: var(--dark-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li { margin: 1.5rem 0; }
     .burger { display: block; }
+}
+
+/* Socials hover */
+.socials a {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    color: var(--primary);
+    transform: translateY(-5px);
 }
