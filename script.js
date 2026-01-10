@@ -1,48 +1,48 @@
-gsap.registerPlugin(ScrollTrigger);
+// --- Mobile Navigation ---
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
 
-// --- Three.js 3D Background ---
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+burger.addEventListener('click', () => {
+    // Toggle Nav
+    navLinks.classList.toggle('active');
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('canvas-container').appendChild(renderer.domElement);
+    // Burger Animation
+    burger.classList.toggle('toggle');
+    
+    // Animate Lines
+    const lines = burger.querySelectorAll('div');
+    if (burger.classList.contains('toggle')) {
+        lines[0].style.transform = "rotate(-45deg) translate(-5px, 6px)";
+        lines[1].style.opacity = "0";
+        lines[2].style.transform = "rotate(45deg) translate(-5px, -6px)";
+    } else {
+        lines[0].style.transform = "none";
+        lines[1].style.opacity = "1";
+        lines[2].style.transform = "none";
+    }
+});
 
-const geometry = new THREE.BufferGeometry();
-const vertices = [];
-for (let i = 0; i < 1800; i++) {
-    vertices.push(THREE.MathUtils.randFloatSpread(2000));
-    vertices.push(THREE.MathUtils.randFloatSpread(2000));
-    vertices.push(THREE.MathUtils.randFloatSpread(2000));
-}
-geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-
-const material = new THREE.PointsMaterial({ color: 0x3b82f6, size: 2, transparent: true, opacity: 0.6 });
-const particles = new THREE.Points(geometry, material);
-scene.add(particles);
-camera.position.z = 1000;
-
-function animate() {
-    requestAnimationFrame(animate);
-    particles.rotation.y += 0.001;
-    particles.rotation.x += 0.0002;
-    renderer.render(scene, camera);
-}
-animate();
-
-// --- GSAP Scroll Reveal ---
-const reveals = document.querySelectorAll('.reveal');
-reveals.forEach(el => {
-    ScrollTrigger.create({
-        trigger: el,
-        start: "top 85%",
-        onEnter: () => el.classList.add('active'),
-        once: true
+// Close menu when a link is clicked
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burger.classList.remove('toggle');
+        const lines = burger.querySelectorAll('div');
+        lines[0].style.transform = "none";
+        lines[1].style.opacity = "1";
+        lines[2].style.transform = "none";
     });
 });
 
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+// --- Scroll Effects ---
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.padding = "0.5rem 0";
+        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.5)";
+    } else {
+        navbar.style.padding = "1rem 0";
+        navbar.style.boxShadow = "none";
+    }
 });
