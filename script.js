@@ -1,71 +1,163 @@
-// Theme Toggle Logic
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const icon = themeToggle.querySelector('i');
-
-// Check for saved theme in LocalStorage
-const savedTheme = localStorage.getItem('theme') || 'dark';
-body.setAttribute('data-theme', savedTheme);
-updateIcon(savedTheme);
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+// Touch transition and dark/light mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
     
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateIcon(newTheme);
-});
-
-function updateIcon(theme) {
-    if (theme === 'light') {
-        icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
+    // Check for saved theme or prefer-color-scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
     }
-}
-
-// Scroll Reveal Transition Logic using Intersection Observer
-const observerOptions = {
-    threshold: 0.15 // Section reveals when 15% visible
-};
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, observerOptions);
-
-// Select all elements with the .reveal class
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Navbar shadow and background adjustment on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
-    } else {
-        navbar.style.boxShadow = "none";
-    }
-});
-
-// Mobile Burger Menu Toggle
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-if(burger) {
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        if(nav.classList.contains('active')) {
-            nav.style.display = 'flex';
-            nav.style.flexDirection = 'column';
-            nav.style.position = 'absolute';
-            nav.style.top = '70px';
-            nav.style.width = '100%';
-            nav.style.background = 'var(--bg-main)';
+    
+    // Toggle theme
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+        
+        // Update icon
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
         } else {
-            nav.style.display = 'none';
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
         }
     });
-}
+    
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            // Update menu icon
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+    
+    // Touch transition effects for cards
+    const touchElements = document.querySelectorAll('.project-card, .cert-card, .skill-tag, .btn');
+    
+    touchElements.forEach(element => {
+        // Add touch-specific class for styling if needed
+        element.classList.add('touch-element');
+        
+        // Add touch feedback
+        element.addEventListener('touchstart', function() {
+            this.classList.add('touch-active');
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.classList.remove('touch-active');
+        });
+        
+        // Also add hover effect removal on touch devices
+        element.addEventListener('touchmove', function() {
+            this.classList.remove('touch-active');
+        });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Add active class to nav links based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    
+    function highlightNavLink() {
+        const scrollY = window.pageYOffset;
+        
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink.classList.add('active');
+            } else {
+                navLink.classList.remove('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightNavLink);
+    
+    // Add CSS for touch feedback
+    const style = document.createElement('style');
+    style.textContent = `
+        .touch-active {
+            transform: scale(0.98) !important;
+            transition: transform 0.1s ease !important;
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .nav-links a.active::after {
+            width: 100% !important;
+        }
+        
+        /* Improve touch targets for mobile */
+        @media (max-width: 768px) {
+            .nav-links a {
+                padding: 15px 0 !important;
+                display: block;
+                text-align: center;
+            }
+            
+            .btn {
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialize
+    highlightNavLink();
+});
