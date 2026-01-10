@@ -2,88 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghool M | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">RM</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Raghool M</h1>
-        <p>Computer Science Engineering Student</p>
+    <header id="about" class="hero">
+        <div class="container">
+            <h2>Hi, I'm <span class="highlight">Raghool M</span></h2>
+            <p>Computer Science Engineering Student & Full-Stack Developer</p>
+            <p class="summary">Motivated student with strong foundations in software development, data structures, and algorithms. Proficient in Python, Java, and Web Technologies.</p>
+            <div class="socials">
+                <a href="https://github.com/Raghool-user" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:raghoolbecse@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </header>
 
-    <!-- ABOUT -->
-    <section>
-        <h2>About Me</h2>
-        <p>
-            Motivated and detail-oriented Computer Science Engineering student with strong knowledge
-            in software development, Data Structures, and Algorithms. Proficient in Python, Java, C,
-            and Web Technologies with hands-on project experience.
-        </p>
-    </section>
-
-    <!-- SKILLS -->
-    <section>
-        <h2>Skills</h2>
-        <ul class="skills">
-            <li>Python</li>
-            <li>Java</li>
-            <li>C / C++</li>
-            <li>JavaScript</li>
-            <li>HTML & CSS</li>
-            <li>Problem Solving</li>
-        </ul>
-    </section>
-
-    <!-- PROJECTS -->
-    <section>
-        <h2>Projects</h2>
-
-        <div class="card">
-            <h3>Supermarket Billing System</h3>
-            <p>Java-based billing software with inventory tracking and bill generation.</p>
-        </div>
-
-        <div class="card">
-            <h3>Cloud-Based File Storage System</h3>
-            <p>Secure web application for file upload, authentication, and sharing.</p>
-        </div>
-
-        <div class="card">
-            <h3>Expense Tracker App</h3>
-            <p>Tracks expenses, sends alerts, and shows spending insights using charts.</p>
+    <section id="experience" class="section">
+        <div class="container">
+            <h3 class="section-title">Experience</h3>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Web Development Intern</h4>
+                    <span>June 2025 - Aug 2025</span>
+                </div>
+                <h5>Rail Infotech Services, Southern Railways</h5>
+                <ul>
+                    <li>Designed and developed responsive web interfaces using HTML, CSS, JavaScript, and PHP.</li>
+                    <li>Maintained web applications for Educational Institutional management.</li>
+                    <li>Collaborated on UI/UX improvements for internal administrative tools.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- INTERNSHIP -->
-    <section>
-        <h2>Internship</h2>
-        <p>
-            <strong>Web Development Intern</strong><br>
-            Rail Infotech Services – Southern Railways (Madurai Division)<br>
-            June 2025 – August 2025
-        </p>
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h3 class="section-title">Projects</h3>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>Cloud-Based File Storage</h4>
+                    <p>Secure web application for uploading and sharing files with user authentication.</p>
+                    <span class="tags">HTML • CSS • JS • SQL</span>
+                </div>
+                <div class="project-card">
+                    <h4>Expense Tracker App</h4>
+                    <p>Financial tool with budget alerts and data visualization using Chart.js.</p>
+                    <span class="tags">JavaScript • Chart.js • CSS</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section>
-        <h2>Education</h2>
-        <p>
-            <strong>B.E. Computer Science and Engineering</strong><br>
-            Government College of Engineering – GPA: 7.5
-        </p>
+    <section id="skills" class="section">
+        <div class="container">
+            <h3 class="section-title">Technical Skills</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <p>Python, Java, C, C++, JavaScript, PHP, SQL</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Cloud & Tools</h4>
+                    <p>Google Cloud, Oracle Cloud, Git, VS Code</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTACT -->
-    <section>
-        <h2>Contact</h2>
-        <p>Email: raghoolbecse@gmail.com</p>
-        <p>Phone: +91 8608383248</p>
-    </section>
-
-    <footer>
-        <p>© 2026 Raghool M</p>
+    <footer id="contact">
+        <div class="container">
+            <p>Contact: +91 8608383248 | raghoolbecse@gmail.com</p>
+            <p>&copy; 2026 Raghool M. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
