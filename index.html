@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghool M | Portfolio</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="canvas-container"></div>
@@ -26,29 +26,29 @@
     <header id="about" class="hero">
         <div class="container">
             <h2 class="hero-title">Hi, I'm <span class="highlight">Raghool M</span></h2>
-            <p class="role">Computer Science Engineering Student </p>
-            <p class="summary">Motivated developer with strong foundations in software development and AIML[cite: 5, 6].</p>
+            <p class="role">Computer Science Engineering Student [cite: 5]</p>
+            <p class="summary">Motivated developer with strong foundations in software development, data structures, and algorithms[cite: 5]. Experienced in AI/ML concepts and responsive design[cite: 6].</p>
             <div class="socials">
-                <a href="https://github.com/Raghool-user" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:raghoolbecse@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Raghool-user" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank" aria-label="Linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:raghoolbecse@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </header>
 
     <section id="experience" class="section">
         <div class="container">
-            <h3 class="section-title">Professional Experience [cite: 21]</h3>
+            <h3 class="section-title">Professional Experience</h3>
             <div class="glass-card reveal">
                 <div class="card-header">
                     <h4>Web Development Intern [cite: 23]</h4>
                     <span class="date">June 2025 - Aug 2025 [cite: 25]</span>
                 </div>
-                <h5>Rail Infotech Services, Southern Railways [cite: 22]</h5>
+                <h5 class="company">Rail Infotech Services, Southern Railways [cite: 22]</h5>
                 <ul>
-                    <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and PHP[cite: 26].</li>
-                    <li>Managed applications for Educational Institutional management[cite: 27].</li>
-                    <li>Collaborated on UI/UX improvements for administrative tools[cite: 28].</li>
+                    <li>Designed and developed responsive web interfaces using HTML, CSS, JavaScript, and PHP[cite: 26].</li>
+                    <li>Maintained web applications for Educational Institutional management[cite: 27].</li>
+                    <li>Collaborated on UI/UX improvements to enhance tool efficiency[cite: 28].</li>
                 </ul>
             </div>
         </div>
@@ -56,19 +56,19 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h3 class="section-title">Technical Projects [cite: 29]</h3>
+            <h3 class="section-title">Technical Projects</h3>
             <div class="project-grid">
                 <div class="project-card reveal">
-                    <i class="fas fa-cloud-upload-alt icon"></i>
-                    <h4>Cloud Storage System [cite: 30]</h4>
-                    <p>Secure web application for cloud-based file management[cite: 30].</p>
-                    <span class="tech-tags">SQL • JS • PHP [cite: 30]</span>
+                    <div class="icon-box"><i class="fas fa-database"></i></div>
+                    <h4>Cloud-Based Storage [cite: 30]</h4>
+                    <p>Secure web application enabling users to upload, manage, and share files via cloud storage[cite: 30].</p>
+                    <span class="tech-tags">HTML • CSS • JS • SQL [cite: 30]</span>
                 </div>
                 <div class="project-card reveal" style="transition-delay: 0.2s">
-                    <i class="fas fa-chart-pie icon"></i>
-                    <h4>Expense Tracker [cite: 32]</h4>
-                    <p>Budgeting tool with data visualization using Chart.js[cite: 33, 34].</p>
-                    <span class="tech-tags">JavaScript • Chart.js [cite: 32]</span>
+                    <div class="icon-box"><i class="fas fa-calculator"></i></div>
+                    <h4>Expense Tracker App [cite: 32]</h4>
+                    <p>Financial tool triggering alerts for budget limits and visualizing spending with Chart.js[cite: 33, 34].</p>
+                    <span class="tech-tags">HTML • CSS • JavaScript [cite: 32]</span>
                 </div>
             </div>
         </div>
@@ -76,19 +76,28 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h3 class="section-title">Skills & Certifications [cite: 35, 38]</h3>
+            <h3 class="section-title">Skills & Certifications</h3>
             <div class="skills-wrapper">
                 <div class="skill-box reveal">
-                    <h4>Languages [cite: 36]</h4>
-                    <p>Python, Java, C, C++, JavaScript, PHP, SQL [cite: 36]</p>
+                    <h4><i class="fas fa-laptop-code"></i> Languages [cite: 36]</h4>
+                    <p>Python, Java, C, C++, JavaScript, PHP, SQL, HTML/CSS [cite: 36]</p>
                 </div>
                 <div class="skill-box reveal" style="transition-delay: 0.2s">
-                    <h4>Certifications [cite: 38]</h4>
-                    <p>Google Cloud Engineering, Google Data Analytics, NVIDIA Deep Learning.</p>
+                    <h4><i class="fas fa-award"></i> Certifications [cite: 38]</h4>
+                    <p>Google Cloud Engineering, Google Data Analytics, Oracle Cloud Infrastructure[cite: 39].</p>
+                    <p>Fundamentals of Deep Learning (NVIDIA), Java, Python[cite: 39].</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>Thoothukudi, Tamil Nadu, India [cite: 2]</p>
+            <p>+91 8608383248 [cite: 1] | raghoolbecse@gmail.com [cite: 2]</p>
+            <p class="copyright">&copy; 2026 Raghool M. Designed for Performance.</p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
