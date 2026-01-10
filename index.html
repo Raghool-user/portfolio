@@ -3,162 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raghool M | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>RAGHOOL M | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Welcome to my Portfolio</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button></li>
-            </ul>
-            <div class="burger">
-                <div></div>
-                <div></div>
-                <div></div>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">RAGHOOL <span>M</span></a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#certifications">Certifications</a>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </div>
-    </nav>
-
-    <header id="about" class="hero reveal">
-        <div class="container">
-            <h2>Hi, I'm <span class="highlight">Raghool M</span></h2>
-            <p class="role">Full Stack Developer | Software Developer</p>
-            
-            <p class="summary">
-                Motivated and detail-oriented Computer Science Engineering student with strong knowledge of software development, Data Structures, and algorithms.
-            </p>
-
-            <p class="work-description">
-                Aspiring to apply technical expertise and innovative thinking to contribute to organizational success and professional growth. Proficient in Python, Java, C, and Web Technologies with hands-on experience in projects related to Artificial Intelligence and Machine Learning concepts.
-            </p>
-
-            <div class="socials">
-                <a href="https://github.com/Raghool-user" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:raghoolbecse@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <section id="education" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Education</h3>
-            <div class="education-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Government College of Engineering</h4>
-                        <span>2022 - Present</span>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1 class="hero-title">RAGHOOL M</h1>
+                    <p class="hero-subtitle">Computer Science Engineering Student</p>
+                    <p class="hero-description">Motivated and detail-oriented with strong knowledge of software development, Data Structures and algorithms. Proficient in Python, Java, C and Web Technologies.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
                     </div>
-                    <p>BE Computer Science And Engineering</p>
-                    <p class="location">GPA: 7.5 / 10.0</p>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>St. Francis Xavier's Higher Secondary School</h4>
-                        <span>2022</span>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
                     </div>
-                    <p>Class 12th, State Board, Thoothukudi, Tamil Nadu</p>
-                    <p class="location">Percentage: 88.3%</p>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Bell Matriculation Higher Secondary School</h4>
-                        <span>2020</span>
-                    </div>
-                    <p>Class 10th, State Board, Thoothukudi, Tamil Nadu</p>
-                    <p class="location">Percentage: 87.8%</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience" class="section reveal">
-        <div class="container">
-            <h3 class="section-title">Experience</h3>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Web Development Intern</h4>
-                    <span>June 30, 2025 - Aug 1, 2025</span>
-                </div>
-                <h5>Rail Infotech Services, Southern Railways (Madurai Division)</h5>
-                <ul>
-                    <li>Worked on designing and developing responsive web interfaces using HTML, CSS, JavaScript, and PHP.</li>
-                    <li>Assisted in maintaining and updating internal web applications used for Educational Institutional management.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Projects</h3>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h4>Cloud-Based File Storage System</h4>
-                    <p>Designed a secure file upload and sharing web application with authentication enabling users to manage and share files across cloud storage.</p>
-                    <span class="tags">HTML • CSS • JavaScript • SQL</span>
-                </div>
-                <div class="project-card">
-                    <h4>Expense Tracker app</h4>
-                    <p>Financial tool that sends alerts when spending nears or exceeds the budget. Visualizes spending insights through pie charts and bar graphs.</p>
-                    <span class="tags">HTML • CSS • JavaScript</span>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Executive Summary</h2>
+                <div class="section-content">
+                    <p>Motivated and detail-oriented Computer Science Engineering student with strong knowledge of software development, Data Structures and algorithms. Proficient in Python, Java, C and Web Technologies with hands-on experience in projects related to Artificial Intelligence and Machine Learning concepts.</p>
+                    <p>Aspiring to apply technical expertise and innovative thinking to contribute to organizational success and professional growth.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="section reveal">
-        <div class="container">
-            <h3 class="section-title">Skills</h3>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Programming Languages</h4>
-                    <p>Python, Java, C, C++, JavaScript</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <p>Problem Solving and Analytical Thinking, Communication and Team Collaboration</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Certifications</h3>
-            <div class="cert-grid">
-                <div class="skill-category">
-                    <h4>Professional & Technical</h4>
+        <section id="experience" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-item">
+                    <h3>Web Development Intern</h3>
+                    <p class="company">Rail Infotech Services, Southern Railways (Madurai Division)</p>
+                    <p class="duration">June 30, 2025 – Aug 1, 2025</p>
                     <ul>
-                        <li>Web Development Intern - Rail infotech Services</li>
-                        <li>Java, Python, C++ - Cybernaut Edu-Tech</li>
-                        <li>Google Data Analytics - Google</li>
-                        <li>Oracle Cloud Infrastructure - Oracle</li>
-                        <li>Google Cloud Engineering - Google</li>
-                        <li>Fundamentals of Deep Learning - NVIDIA</li>
+                        <li>Worked on designing and developing responsive web interfaces using HTML, CSS, JavaScript, and PHP.</li>
+                        <li>Assisted in maintaining and updating internal web applications used for Educational Institutional management.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact" class="reveal">
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Cloud-Based File Storage System</h3>
+                        <ul>
+                            <li>Designed a secure file upload and sharing web application with authentication.</li>
+                            <li>Enabled users to manage and share files across cloud storage.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card">
+                        <h3>Expense Tracker App</h3>
+                        <ul>
+                            <li>Sends alerts when spending nears or exceeds the budget.</li>
+                            <li>Displays spending insights through pie charts and bar graphs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Analytical Thinking</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <h3>BE Computer Science And Engineering</h3>
+                    <p class="institution">Government College of Engineering</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class 12th, State Board</h3>
+                    <p class="institution">St. Francis Xavier's Higher Secondary School, Thoothukudi, Tamil Nadu</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class 10th, State Board</h3>
+                    <p class="institution">Bell Matriculation Higher Secondary School, Thoothukudi, Tamil Nadu</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <h3>Web Development Intern</h3>
+                        <p>Rail Infotech Services</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Java, Python, C++</h3>
+                        <p>Cybernaut Edu-Tech</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Google Data Analytics</h3>
+                        <p>Google</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Oracle Cloud Infrastructure</h3>
+                        <p>Oracle</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Google Cloud Engineering</h3>
+                        <p>Google</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>Fundamentals of Deep Learning</h3>
+                        <p>NVIDIA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> Available upon request</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Thoothukudi, Tamil Nadu, India</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <p>Feel free to reach out for opportunities or collaborations!</p>
+                        <p class="note">Note: This is a static portfolio. For real contact, add your contact details.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <p>Contact: +91 8608383248 | raghoolbecse@gmail.com</p>
-            <p>&copy; 2026 Raghool M. All rights reserved.</p>
+            <p>&copy; 2023 RAGHOOL M. All rights reserved.</p>
+            <p>Portfolio based on resume content</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
