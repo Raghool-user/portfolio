@@ -1,169 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raghool M | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raghool M — Full-Stack Web Developer</title>
+<meta name="description" content="Portfolio of Raghool M — Full-Stack Web Developer & CS Engineering Graduate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">Ra1</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button></li>
-            </ul>
-            <div class="burger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+
+<div class="blueprint-grid" aria-hidden="true"></div>
+
+<nav class="rail" aria-label="Section navigation">
+  <div class="rail-line" aria-hidden="true"></div>
+  <button class="rail-dot" data-target="summary"><span class="rail-label">Summary</span></button>
+  <button class="rail-dot" data-target="experience"><span class="rail-label">Experience</span></button>
+  <button class="rail-dot" data-target="projects"><span class="rail-label">Projects</span></button>
+  <button class="rail-dot" data-target="skills"><span class="rail-label">Skills</span></button>
+  <button class="rail-dot" data-target="education"><span class="rail-label">Education</span></button>
+  <button class="rail-dot" data-target="certifications"><span class="rail-label">Certifications</span></button>
+  <button class="rail-dot" data-target="contact"><span class="rail-label">Contact</span></button>
+</nav>
+
+<main>
+
+  <header class="hero" id="top">
+    <div class="title-block">
+      <div class="tb-corner-br" aria-hidden="true"></div>
+      <div class="tb-top">
+        <span>FILE // PORTFOLIO — 2026</span>
+        <span>SHEET 01 / 01</span>
+      </div>
+      <h1 class="tb-name">RAGHOOL M</h1>
+      <p class="tb-role">Full-Stack Web Developer &middot; CS Engineering Graduate</p>
+      <p class="tb-blurb">I build responsive web applications end to end — from relational schemas to interactive interfaces — and bring the same structured thinking to data-driven and ML-adjacent systems.</p>
+
+      <div class="tb-grid">
+        <div class="tb-field">
+          <span class="tb-label">Location</span>
+          <span class="tb-value">Thoothukudi, Tamil Nadu, India</span>
         </div>
-    </nav>
-
-    <header id="about" class="hero reveal">
-        <div class="container">
-            <h2>Hi, I'm <span class="highlight">Raghool M</span></h2>
-            <p class="role">Full Stack Developer | Software Developer</p>
-            
-            <p class="summary">
-                Motivated and detail-oriented Computer Science Engineering student with strong knowledge of software development, Data Structures, and algorithms.
-            </p>
-
-            <p class="work-description">
-                Aspiring to apply technical expertise and innovative thinking to contribute to organizational success and professional growth. Proficient in Python, Java, C, and Web Technologies with hands-on experience in projects related to Artificial Intelligence and Machine Learning concepts.
-            </p>
-
-            <div class="resume-btn-container">
-                <a href="Raghool_Resume.pdf" target="_blank" class="resume-btn">
-                    <i class="fas fa-file-download"></i> Download Resume
-                </a>
-            </div>
-
-            <div class="socials">
-                <a href="https://github.com/Raghool-user" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:raghoolbecse@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+        <div class="tb-field">
+          <span class="tb-label">Phone</span>
+          <span class="tb-value"><a href="tel:+918608383248">+91 86083 83248</a></span>
         </div>
-    </header>
-
-    <section id="education" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Education</h3>
-            <div class="education-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Government College of Engineering</h4>
-                        <span>2022 - Present</span>
-                    </div>
-                    <p>BE Computer Science And Engineering</p>
-                    <p class="location">GPA: 7.5 / 10.0</p>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>St. Francis Xavier's Higher Secondary School</h4>
-                        <span>2022</span>
-                    </div>
-                    <p>Class 12th, State Board, Thoothukudi, Tamil Nadu</p>
-                    <p class="location">Percentage: 88.3%</p>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Bell Matriculation Higher Secondary School</h4>
-                        <span>2020</span>
-                    </div>
-                    <p>Class 10th, State Board, Thoothukudi, Tamil Nadu</p>
-                    <p class="location">Percentage: 87.8%</p>
-                </div>
-            </div>
+        <div class="tb-field">
+          <span class="tb-label">Email</span>
+          <span class="tb-value"><a href="mailto:raghoolbecse@gmail.com">raghoolbecse@gmail.com</a></span>
         </div>
-    </section>
-
-    <section id="experience" class="section reveal">
-        <div class="container">
-            <h3 class="section-title">Experience</h3>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Web Development Intern</h4>
-                    <span>June 30, 2025 - Aug 1, 2025</span>
-                </div>
-                <h5>Rail Infotech Services, Southern Railways (Madurai Division)</h5>
-                <ul>
-                    <li>Worked on designing and developing responsive web interfaces using HTML, CSS, JavaScript, and PHP.</li>
-                    <li>Assisted in maintaining and updating internal web applications used for Educational Institutional management.</li>
-                </ul>
-            </div>
+        <div class="tb-field">
+          <span class="tb-label">LinkedIn</span>
+          <span class="tb-value"><a href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank" rel="noopener">/in/raghool-m</a></span>
         </div>
-    </section>
+      </div>
 
-    <section id="projects" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Projects</h3>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h4>Cloud-Based File Storage System</h4>
-                    <p>Designed a secure file upload and sharing web application with authentication enabling users to manage and share files across cloud storage.</p>
-                    <span class="tags">HTML • CSS • JavaScript • SQL</span>
-                </div>
-                <div class="project-card">
-                    <h4>Expense Tracker app</h4>
-                    <p>Financial tool that sends alerts when spending nears or exceeds the budget. Visualizes spending insights through pie charts and bar graphs.</p>
-                    <span class="tags">HTML • CSS • JavaScript</span>
-                </div>
-            </div>
+      <svg class="track-icon" width="220" height="26" viewBox="0 0 220 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="0" y1="6" x2="220" y2="6" stroke="#EAF2FA" stroke-opacity="0.35" stroke-width="2"/>
+        <line x1="0" y1="20" x2="220" y2="20" stroke="#EAF2FA" stroke-opacity="0.35" stroke-width="2"/>
+        <line x1="8" y1="2" x2="8" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="34" y1="2" x2="34" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="60" y1="2" x2="60" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="86" y1="2" x2="86" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="112" y1="2" x2="112" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="138" y1="2" x2="138" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="164" y1="2" x2="164" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <line x1="190" y1="2" x2="190" y2="24" stroke="#EAF2FA" stroke-opacity="0.25" stroke-width="2"/>
+        <circle cx="208" cy="13" r="5" fill="#F2A93B"/>
+      </svg>
+    </div>
+  </header>
+
+  <section id="summary">
+    <div class="eyebrow">Sheet 01 — Summary</div>
+    <h2 class="section-title">Professional Summary</h2>
+    <div class="panel">
+      <p>BE Computer Science and Engineering graduate with hands-on experience in full-stack web development, strong knowledge of data structures and algorithms, and exposure to cloud platforms and machine learning fundamentals. Skilled at building responsive web applications and applying analytical thinking to solve real-world technical problems.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="eyebrow">Sheet 02 — Experience</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="panel">
+      <div class="exp-head">
+        <div>
+          <span class="exp-role">Web Developer Intern</span> — <span class="exp-org">Rail Infotech Services, Southern Railway</span>
         </div>
-    </section>
+        <span class="exp-dates">JUN 2025 — AUG 2025</span>
+      </div>
+      <p>Spearheaded the development of responsive internal web interfaces using HTML5 and Bootstrap to streamline the Quarters Management System. Collaborated with cross-functional railway departments to translate complex user requirements into functional UI components.</p>
+      <p>Integrated Python-based backend logic with relational databases to automate training schedule workflows, and improved platform reliability through comprehensive unit testing, debugging, and technical documentation for mission-critical intranet applications.</p>
+    </div>
+  </section>
 
-    <section id="skills" class="section reveal">
-        <div class="container">
-            <h3 class="section-title">Skills</h3>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Programming Languages</h4>
-                    <p>Python, Java, C, C++, JavaScript</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <p>Problem Solving and Analytical Thinking, Communication and Team Collaboration</p>
-                </div>
-            </div>
+  <section id="projects">
+    <div class="eyebrow">Sheet 03 — Projects</div>
+    <h2 class="section-title">Key Projects</h2>
+
+    <div class="project panel">
+      <div class="proj-head">
+        <span class="proj-title">Multimodal Deepfake Detection System</span>
+      </div>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Scikit-learn</span>
+        <span class="chip">Flask</span><span class="chip">OpenCV</span><span class="chip">Transformers</span>
+      </div>
+      <p>Developed a real-time deepfake detection system using video, audio, and lip-sync analysis. Extracted features using ViT, WavLM, and SyncNet, and applied machine learning models for classification — improving accuracy and reducing false positives through multimodal fusion and ensemble methods.</p>
+    </div>
+
+    <div class="project panel">
+      <div class="proj-head">
+        <span class="proj-title">Expense Tracker Application <span class="proj-sub">(Naan Mudhalvan)</span></span>
+      </div>
+      <div class="chips">
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React.js</span>
+      </div>
+      <p>Built a web-based application to track daily expenses and manage monthly budgets, with budget alert functionality that notifies users when spending exceeds set limits. Designed interactive visualizations — including pie charts and bar graphs — for clear expense analysis.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">Sheet 04 — Skills</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h3>Programming Languages</h3>
+        <p>Python, Java, C, C++ (Basics)</p>
+      </div>
+      <div class="skill-cat">
+        <h3>Web Technologies</h3>
+        <p>HTML5, CSS3, JavaScript, React.js, PHP</p>
+      </div>
+      <div class="skill-cat">
+        <h3>Database</h3>
+        <p>MySQL, SQL (DDL, DML, Joins), RDBMS</p>
+      </div>
+      <div class="skill-cat">
+        <h3>Tools &amp; Platforms</h3>
+        <p>Git, GitHub, VS Code, Google Cloud Platform</p>
+      </div>
+      <div class="skill-cat">
+        <h3>Concepts</h3>
+        <p>Data Structures &amp; Algorithms, OOP, Machine Learning Fundamentals</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="eyebrow">Sheet 05 — Education</div>
+    <h2 class="section-title">Education</h2>
+    <div class="panel">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-title">Bachelor of Engineering, Computer Science and Engineering</span>
+            <span class="tl-date">2022 — 2026</span>
+          </div>
+          <div class="tl-sub"><span>Government College of Engineering, Dharmapuri</span><span>CGPA: 7.6 / 10.0</span></div>
         </div>
-    </section>
-
-    <section id="certifications" class="section bg-light reveal">
-        <div class="container">
-            <h3 class="section-title">Certifications</h3>
-            <div class="cert-grid">
-                <div class="skill-category">
-                    <h4>Professional & Technical</h4>
-                    <ul>
-                        <li>Web Development Intern - Rail infotech Services</li>
-                        <li>Java, Python, C++ - Cybernaut Edu-Tech</li>
-                        <li>Google Data Analytics - Google</li>
-                        <li>Oracle Cloud Infrastructure - Oracle</li>
-                        <li>Google Cloud Engineering - Google</li>
-                        <li>Fundamentals of Deep Learning - NVIDIA</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-title">Class 12th — State Board</span>
+            <span class="tl-date">2022</span>
+          </div>
+          <div class="tl-sub"><span>St. Francis Xavier's Higher Secondary School, Thoothukudi</span><span>88.3%</span></div>
         </div>
-    </section>
-
-    <footer id="contact" class="reveal">
-        <div class="container">
-            <p>Contact: +91 8608383248 | raghoolbecse@gmail.com</p>
-            <p>&copy; 2026 Raghool M. All rights reserved.</p>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-title">Class 10th — State Board</span>
+            <span class="tl-date">2020</span>
+          </div>
+          <div class="tl-sub"><span>Bell Matriculation Higher Secondary School, Thoothukudi</span><span>87.8%</span></div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="certifications">
+    <div class="eyebrow">Sheet 06 — Certifications</div>
+    <h2 class="section-title">Certifications</h2>
+    <ul class="cert-list">
+      <li class="cert-item">
+        <span class="cert-stamp">✓</span>
+        <span class="cert-body"><span class="cert-name">Web Development Intern</span><span class="cert-issuer">Rail Infotech Services, Southern Railways</span></span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-stamp">✓</span>
+        <span class="cert-body"><span class="cert-name">Java, Python, C++</span><span class="cert-issuer">Cybernaut Edu-Tech</span></span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-stamp">✓</span>
+        <span class="cert-body"><span class="cert-name">Data Analytics</span><span class="cert-issuer">Google</span></span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-stamp">✓</span>
+        <span class="cert-body"><span class="cert-name">Google Cloud Engineering</span><span class="cert-issuer">Google</span></span>
+      </li>
+      <li class="cert-item">
+        <span class="cert-stamp">✓</span>
+        <span class="cert-body"><span class="cert-name">Fundamentals of Deep Learning</span><span class="cert-issuer">NVIDIA</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow">Sheet 07 — Contact</div>
+    <h2 class="section-title">Let's Build Something</h2>
+    <div class="panel contact-panel">
+      <p>Open to full-stack development roles and opportunities to work on data-driven products. Reach out directly, or connect on LinkedIn.</p>
+      <a class="contact-cta" href="mailto:raghoolbecse@gmail.com">Email Raghool →</a>
+    </div>
+  </section>
+
+  <footer class="fine-print">
+    RAGHOOL M — THOOTHUKUDI, TAMIL NADU, INDIA — © 2026
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
