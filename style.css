@@ -1,0 +1,359 @@
+/* =========================================================
+   RAGHOOL M — Portfolio
+   Design concept: a code editor / terminal workspace.
+   Sections are framed as files & panes; the hero is a
+   terminal session; experience reads like a git log.
+   ========================================================= */
+
+:root {
+  /* Color */
+  --bg: #0d0f13;
+  --panel: #14171d;
+  --panel-alt: #191d24;
+  --border: #262b34;
+  --text: #e7e9ec;
+  --text-dim: #8b919c;
+  --text-faint: #565c66;
+  --accent: #ffb454;      /* amber — cursor / prompt */
+  --accent-dim: #8a6a3a;
+  --add: #7ee787;         /* git-add green */
+  --del: #ff7b72;         /* git-del red, used sparingly */
+  --link: #79c0ff;
+
+  /* Type */
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius: 6px;
+  --maxw: 920px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 200px);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent-dim); color: #0d0f13; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Tab bar (nav) ---------- */
+.tabbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(13,15,19,0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabbar-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 12px;
+  overflow-x: auto;
+}
+
+.tab-dots { display: flex; gap: 6px; padding: 0 12px 0 4px; }
+.tab-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.tab-dots span:nth-child(1) { background: #ff5f56; }
+.tab-dots span:nth-child(2) { background: #ffbd2e; }
+.tab-dots span:nth-child(3) { background: #27c93f; }
+
+.tab {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 14px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---------- Hero (terminal) ---------- */
+.hero { padding: 72px 0 56px; }
+
+.terminal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--panel-alt);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.terminal-titlebar .dots { display: flex; gap: 6px; margin-right: 8px; }
+.terminal-titlebar .dots span { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-titlebar .dots span:nth-child(1) { background: #ff5f56; }
+.terminal-titlebar .dots span:nth-child(2) { background: #ffbd2e; }
+.terminal-titlebar .dots span:nth-child(3) { background: #27c93f; }
+
+.terminal-body { padding: 22px 20px 26px; font-family: var(--font-mono); font-size: 14px; }
+
+.term-line { color: var(--text-dim); margin: 0 0 4px; }
+.term-line .prompt { color: var(--add); }
+.term-line .path { color: var(--link); }
+
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  margin: 14px 0 6px;
+  color: var(--text);
+}
+.hero-name .cursor {
+  display: inline-block;
+  width: 0.5ch;
+  background: var(--accent);
+  margin-left: 4px;
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero-role {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 15px;
+  margin: 0 0 18px;
+}
+
+.hero-summary { color: var(--text-dim); max-width: 62ch; margin: 0 0 26px; font-size: 15.5px; }
+
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  padding: 11px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary { background: var(--accent); color: #14171d; border-color: var(--accent); font-weight: 600; }
+.btn-primary:hover { background: #ffc270; text-decoration: none; }
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-ghost:hover { border-color: var(--text-dim); text-decoration: none; }
+
+/* ---------- Section shell (file pane) ---------- */
+.section { padding: 56px 0; border-top: 1px solid var(--border); }
+
+.file-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  padding: 7px 14px;
+  border-radius: 6px 6px 0 0;
+}
+.file-tab .ext { color: var(--accent); }
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.section-sub { color: var(--text-faint); font-size: 13px; font-family: var(--font-mono); margin: 0 0 28px; }
+
+/* ---------- Skills as ls output ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.skill-group {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+}
+
+.skill-group h3 {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+}
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+/* ---------- Experience as git log ---------- */
+.gitlog { position: relative; padding-left: 26px; }
+.gitlog::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
+
+.commit { position: relative; padding-bottom: 30px; }
+.commit:last-child { padding-bottom: 0; }
+.commit::before {
+  content: '';
+  position: absolute;
+  left: -26px; top: 4px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--add);
+}
+
+.commit-hash { font-family: var(--font-mono); font-size: 12px; color: var(--add); }
+.commit-meta { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin: 2px 0 8px; }
+.commit-title { font-weight: 600; margin: 0 0 8px; font-size: 16.5px; }
+.commit-body { color: var(--text-dim); font-size: 14.5px; margin: 0; }
+
+/* ---------- Projects as diff cards ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.project-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.project-name::before { content: '{ }'; color: var(--accent); font-size: 13px; }
+
+.project-desc { color: var(--text-dim); font-size: 14.2px; margin: 0 0 14px; }
+
+.diff-add { color: var(--add); font-family: var(--font-mono); font-size: 12.5px; display: block; margin-bottom: 3px; }
+.diff-add::before { content: '+ '; }
+
+.project-links { margin-top: 14px; display: flex; gap: 14px; font-family: var(--font-mono); font-size: 12.5px; }
+
+/* ---------- Certifications as file list ---------- */
+.cert-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.cert-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+.cert-item:last-child { border-bottom: none; }
+.cert-item:hover { background: var(--panel-alt); }
+.cert-name { font-size: 14.5px; }
+.cert-issuer { color: var(--text-faint); font-family: var(--font-mono); font-size: 12px; }
+.cert-link { font-family: var(--font-mono); font-size: 12.5px; white-space: nowrap; }
+
+/* ---------- Education ---------- */
+.edu-item { margin-bottom: 18px; }
+.edu-item:last-child { margin-bottom: 0; }
+.edu-degree { font-weight: 600; font-size: 15.5px; margin: 0 0 3px; }
+.edu-school { color: var(--text-dim); font-size: 14px; margin: 0 0 3px; }
+.edu-meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-faint); margin: 0; }
+
+/* ---------- Contact / footer ---------- */
+.contact-block {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.contact-block .k { color: var(--text-faint); }
+.contact-block .v { color: var(--text); }
+.contact-row { margin-bottom: 8px; }
+.contact-row:last-child { margin-bottom: 0; }
+
+footer {
+  text-align: center;
+  padding: 30px 0 50px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 560px) {
+  .hero { padding: 48px 0 40px; }
+  .section { padding: 40px 0; }
+  .contact-block { padding: 20px; }
+}
