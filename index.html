@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raghool · Portfolio</title>
-  <!-- Font Awesome (free) -->
+  <title>Raghoo · Portfolio</title>
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,162 +15,218 @@
     }
 
     body {
-      background: #f4f7fb;
+      background: #f6f9fc;
       color: #1e293b;
+      line-height: 1.6;
       padding: 2rem 1rem;
-      display: flex;
-      justify-content: center;
     }
 
-    .portfolio {
+    .container {
       max-width: 1200px;
-      width: 100%;
+      margin: 0 auto;
       background: white;
-      border-radius: 2.5rem;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
-      overflow: hidden;
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      padding: 2.5rem 2rem;
       transition: all 0.2s;
     }
 
-    /* header / hero */
-    .hero {
-      background: linear-gradient(145deg, #0b1a33, #1a2f4f);
-      color: white;
-      padding: 2.5rem 2.5rem 2rem;
-    }
-
-    .hero-grid {
+    /* header / profile row */
+    .profile-header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 2rem;
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 span {
-      color: #94c5ff;
-    }
-
-    .hero .tagline {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-top: 0.5rem;
-      max-width: 600px;
-      font-weight: 300;
-    }
-
-    .badge-group {
+    .profile-left {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    .badge {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(2px);
-      padding: 0.4rem 1rem;
+    .avatar {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+      flex-shrink: 0;
+    }
+
+    .name-title h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #0f172a, #334155);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .name-title .badge {
+      background: #dbeafe;
+      color: #1e4fd9;
+      padding: 0.25rem 1rem;
       border-radius: 40px;
-      border: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    .profile-right {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .badge i {
-      color: #94c5ff;
-    }
-
-    .resume-btn {
+      gap: 0.6rem;
       background: white;
-      color: #0b1a33;
-      border: none;
       padding: 0.6rem 1.5rem;
       border-radius: 60px;
       font-weight: 600;
       font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: 0.15s;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      border: 1.5px solid #e2e8f0;
+      color: #1e293b;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      border: 1.5px solid #0f172a;
+      color: white;
+    }
+
+    .btn-primary i {
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      border-color: #1e293b;
+      transform: scale(1.02);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    /* grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
       margin-top: 1rem;
     }
 
-    .resume-btn:hover {
-      transform: scale(1.02);
-      background: #f0f7ff;
-    }
-
-    .resume-btn i {
-      color: #1a2f4f;
-    }
-
-    /* quick links (github etc) */
-    .quick-links {
+    /* sidebar */
+    .sidebar {
       display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-top: 1.2rem;
-    }
-
-    .quick-links a {
-      color: white;
-      opacity: 0.75;
-      font-size: 1.1rem;
-      transition: 0.15s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .quick-links a:hover {
-      opacity: 1;
-      color: #b6d6ff;
-    }
-
-    /* main content */
-    .main-content {
-      padding: 2.5rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
+      flex-direction: column;
       gap: 2rem;
     }
 
-    @media (max-width: 800px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+    .card {
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 1.6rem 1.5rem;
+      border: 1px solid #e9edf2;
+      transition: 0.15s;
     }
 
-    /* sections */
+    .card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title i {
+      color: #2563eb;
+      font-size: 1rem;
+    }
+
+    .info-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .info-line:last-child {
+      border-bottom: none;
+    }
+
+    .info-line i {
+      width: 22px;
+      color: #2563eb;
+      font-size: 1rem;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: white;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1e293b;
+      border: 1px solid #dce2ea;
+      margin: 0.2rem 0.15rem;
+    }
+
+    .skill-group {
+      margin-top: 0.4rem;
+    }
+
+    .skill-group strong {
+      display: block;
+      font-size: 0.8rem;
+      color: #475569;
+      margin: 0.6rem 0 0.2rem;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     .section-title {
       font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      border-bottom: 3px solid #e9edf4;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 10px;
+      color: #0f172a;
     }
 
     .section-title i {
-      color: #1a2f4f;
-      font-size: 1.2rem;
+      color: #2563eb;
     }
 
     .exp-item, .project-item {
@@ -181,340 +237,372 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      font-weight: 600;
-      color: #0b1a33;
+      align-items: baseline;
+    }
+
+    .exp-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
     }
 
     .exp-header .company {
+      font-weight: 600;
       color: #2563eb;
     }
 
+    .exp-date {
+      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
     .exp-desc {
-      margin-top: 0.4rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      margin-top: 0.3rem;
       color: #334155;
+      font-size: 0.95rem;
+      padding-left: 0.2rem;
     }
 
     .project-item h4 {
-      font-weight: 600;
-      color: #0b1a33;
+      font-size: 1rem;
+      font-weight: 700;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 0.6rem;
     }
 
-    .project-item .tech {
-      background: #eef2f6;
-      padding: 0.2rem 0.7rem;
-      border-radius: 30px;
+    .project-stack {
       font-size: 0.7rem;
-      font-weight: 500;
+      background: #e9edf2;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 600;
       color: #1e293b;
     }
 
     .project-item p {
-      margin-top: 0.3rem;
-      font-size: 0.93rem;
-      color: #334155;
-      line-height: 1.5;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .skill-tag {
-      background: #eef2f6;
-      padding: 0.25rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      color: #1e293b;
+      color: #475569;
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
     }
 
     .cert-list {
-      list-style: none;
-      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+      margin-top: 0.3rem;
     }
 
     .cert-list li {
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #edf1f7;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-    }
-
-    .cert-list li i {
-      color: #2563eb;
-      width: 18px;
-    }
-
-    .declaration {
-      margin-top: 2rem;
-      padding: 1.2rem 1.5rem;
-      background: #f8fafc;
-      border-radius: 1.2rem;
+      list-style: none;
       font-size: 0.9rem;
-      color: #334155;
-      border-left: 4px solid #1a2f4f;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      color: #94a3b8;
-      border-top: 1px solid #e9edf4;
-      padding-top: 1.5rem;
-    }
-
-    /* download resume button inside hero */
-    .resume-download-btn {
       background: white;
-      border: none;
-      padding: 0.5rem 1.4rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: #0b1a33;
-      display: inline-flex;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .footer-links {
+      margin-top: 2.5rem;
+      border-top: 2px solid #eef2f6;
+      padding-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: 0.15s;
-      font-size: 0.95rem;
     }
 
-    .resume-download-btn:hover {
-      background: #e8f0fe;
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
     }
 
-    .github-repo-badge {
-      background: rgba(255,255,255,0.06);
-      border-radius: 60px;
-      padding: 0.15rem 1rem;
+    .social-links a {
+      color: #334155;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .repo-badge {
+      background: #f1f5f9;
+      border-radius: 40px;
+      padding: 0.3rem 1.2rem;
       font-size: 0.8rem;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid #dce2ea;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    /* responsiveness */
-    @media (max-width: 500px) {
-      .hero h1 {
-        font-size: 2.2rem;
+    @media (max-width: 800px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
-      .hero-grid {
+      .profile-header {
         flex-direction: column;
         align-items: start;
+        gap: 1rem;
       }
+      .profile-right {
+        width: 100%;
+        justify-content: start;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+      }
+    }
+
+    .btn-download {
+      background: #0f172a;
+      color: white;
+      border: none;
+    }
+
+    .btn-download i {
+      color: white;
+    }
+
+    .btn-download:hover {
+      background: #1e293b;
+    }
+
+    .github-card {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .github-stats span {
+      margin-right: 1rem;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    .github-stats i {
+      margin-right: 4px;
+      color: #2563eb;
     }
   </style>
 </head>
 <body>
-<div class="portfolio" id="portfolio-root">
+<div class="container" id="portfolio-root">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-grid">
-      <div>
-        <h1>Raghool <span>·</span> S</h1>
-        <div class="tagline">
-          <i class="fas fa-code" style="margin-right: 6px;"></i> 
-          BE CSE · Full-stack developer · ML enthusiast
-        </div>
-        <div class="badge-group">
-          <span class="badge"><i class="fas fa-graduation-cap"></i> CGPA 7.6</span>
-          <span class="badge"><i class="fas fa-laptop-code"></i> React · Python</span>
-          <span class="badge"><i class="fas fa-cloud"></i> Google Cloud</span>
-        </div>
-        <!-- download resume button (explicit) -->
-        <button class="resume-btn" id="downloadResumeBtn">
-          <i class="fas fa-file-pdf"></i> Download resume.pdf
-        </button>
-        <!-- quick links to github & repos -->
-        <div class="quick-links">
-          <a href="#" target="_blank" id="githubProfileLink"><i class="fab fa-github"></i> github.com/Raghoo-user</a>
-          <a href="#" target="_blank" id="portfolioRepoLink"><i class="fas fa-folder-open"></i> portfolio repo</a>
-          <span class="github-repo-badge"><i class="fas fa-code-branch"></i> 1 branch · 0 tags</span>
+  <!-- header -->
+  <div class="profile-header">
+    <div class="profile-left">
+      <div class="avatar">R</div>
+      <div class="name-title">
+        <h1>Raghoo · user</h1>
+        <div><span class="badge"><i class="fas fa-code"></i> Full-Stack Developer</span></div>
+        <div style="margin-top: 6px; font-size: 0.9rem; color: #475569;">
+          <i class="fas fa-map-pin" style="color: #2563eb;"></i> BE CSE · 2026
         </div>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div style="background: rgba(255,255,255,0.05); padding: 0.6rem 1.2rem; border-radius: 60px; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.1);">
-          <i class="fas fa-user-circle"></i> Raghoo-user
-        </div>
-        <div style="opacity:0.6; font-size:0.75rem;"><i class="fas fa-clock"></i> 2026 · portfolio</div>
-      </div>
+    </div>
+    <div class="profile-right">
+      <a href="#" class="btn btn-primary btn-download" id="downloadResumeBtn">
+        <i class="fas fa-file-pdf"></i> Download CV
+      </a>
+      <a href="https://github.com/Raghoo-user/portfolio" target="_blank" class="btn btn-outline">
+        <i class="fab fa-github"></i> Repository
+      </a>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-    <div class="grid-2">
-      <!-- LEFT COLUMN -->
-      <div>
-        <!-- Professional Summary -->
-        <div class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</div>
-        <p style="margin-bottom: 2rem; line-height: 1.6; color: #1e293b;">BE Computer Science and Engineering Graduate with hands-on experience in full-stack web development, strong knowledge of data structures and algorithms, and exposure to cloud platforms and machine learning fundamentals. Skilled at building responsive web applications and applying analytical thinking to solve real-world technical problems.</p>
+  <!-- main grid -->
+  <div class="grid-2">
+    <!-- sidebar left -->
+    <div class="sidebar">
+      <!-- contact -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-address-card"></i> Contact</div>
+        <div class="info-line"><i class="fas fa-envelope"></i> raghoo.user@edu.in</div>
+        <div class="info-line"><i class="fas fa-phone-alt"></i> +91 98765 43210</div>
+        <div class="info-line"><i class="fab fa-github"></i> Raghoo-user</div>
+        <div class="info-line"><i class="fab fa-linkedin"></i> raghoo-dev</div>
+        <div class="info-line"><i class="fas fa-map-marker-alt"></i> Thoothukudi, IN</div>
+      </div>
 
-        <!-- Experience -->
+      <!-- education -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+        <div><strong>BE CSE</strong> · 2022-2026</div>
+        <div style="font-size:0.9rem; color: #334155;">Govt. College of Engg, Dharmapuri</div>
+        <div style="font-weight:600; margin-top: 4px;">CGPA: 7.6 / 10.0</div>
+        <div style="margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+          <div><strong>Class 12th</strong> 88.3% (State Board)</div>
+          <div><strong>Class 10th</strong> 87.8% (State Board)</div>
+        </div>
+      </div>
+
+      <!-- skills compact -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-cog"></i> Tech Stack</div>
+        <div class="skill-group">
+          <strong>Languages</strong>
+          <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C</span><span class="skill-tag">C++</span>
+        </div>
+        <div class="skill-group">
+          <strong>Web</strong>
+          <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JS</span><span class="skill-tag">React</span><span class="skill-tag">PHP</span>
+        </div>
+        <div class="skill-group">
+          <strong>Database</strong>
+          <span class="skill-tag">MySQL</span><span class="skill-tag">SQL</span><span class="skill-tag">RDBMS</span>
+        </div>
+        <div class="skill-group">
+          <strong>Tools</strong>
+          <span class="skill-tag">Git</span><span class="skill-tag">VS Code</span><span class="skill-tag">GCP</span>
+        </div>
+        <div class="skill-group">
+          <strong>Concepts</strong>
+          <span class="skill-tag">DSA</span><span class="skill-tag">OOP</span><span class="skill-tag">ML fundamentals</span>
+        </div>
+      </div>
+
+      <!-- certifications -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
+        <ul class="cert-list">
+          <li>Web Dev Intern · Rail Infotech</li>
+          <li>Java, Python, C++ · Cybernaut</li>
+          <li>Data Analytics · Google</li>
+          <li>Google Cloud Eng. · Google</li>
+          <li>Deep Learning · NVIDIA</li>
+        </ul>
+      </div>
+
+      <!-- github dashboard context -->
+      <div class="card" style="background: #eef4ff; border-color: #c7d9ff;">
+        <div class="card-title"><i class="fab fa-github"></i> GitHub Activity</div>
+        <div class="github-card">
+          <span><i class="fas fa-code-branch"></i> 1 branch</span>
+          <span><i class="fas fa-tag"></i> 0 releases</span>
+          <span><i class="fas fa-star"></i> 0 stars</span>
+          <span><i class="fas fa-eye"></i> 0 watching</span>
+        </div>
+        <div style="margin-top: 10px; font-size:0.9rem; background:white; padding:0.4rem 0.8rem; border-radius:40px; border:1px solid #dce2ea;">
+          <i class="fas fa-cloud-upload-alt" style="color:#2563eb;"></i> Deployments: 92
+        </div>
+        <div style="margin-top: 8px; font-size:0.8rem; color:#475569;">
+          <i class="fas fa-folder-open"></i> portfolio · Raghoo-user
+        </div>
+      </div>
+    </div>
+
+    <!-- main right -->
+    <div class="main-content">
+      <!-- summary -->
+      <div>
+        <div class="section-title"><i class="fas fa-user-astronaut"></i> Professional Summary</div>
+        <p style="background: #f1f6fe; padding: 1.2rem 1.5rem; border-radius: 24px; border-left: 6px solid #2563eb; color: #1e293b;">
+          BE Computer Science graduate with hands-on full-stack development, DSA, cloud & ML fundamentals.
+          Passionate about building responsive web apps and solving real-world problems.
+        </p>
+      </div>
+
+      <!-- experience -->
+      <div>
         <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
         <div class="exp-item">
           <div class="exp-header">
-            <span>Web Developer Intern</span>
-            <span class="company">Rail Infotech Services (Southern Railway)</span>
+            <h3>Web Developer Intern <span class="company">· Rail Infotech (Southern Railway)</span></h3>
+            <span class="exp-date">Jun 2025 – Aug 2025</span>
           </div>
-          <div style="font-size:0.85rem; color:#64748b; margin-bottom: 0.3rem;">June 2025 – Aug 2025</div>
           <div class="exp-desc">
-            Spearheaded the development of responsive internal web interfaces using HTML5 and Bootstrap to streamline the Quarters Management System. Collaborated with cross-functional railway departments to translate complex user requirements into functional UI components. Integrated Python-based backend logic with relational databases to automate training schedule workflows. Improved platform reliability by executing comprehensive unit testing, debugging, and technical documentation for mission-critical intranet applications.
+            <ul style="padding-left: 1.2rem; list-style: disc;">
+              <li>Built responsive internal interfaces with HTML5 & Bootstrap for Quarters Management.</li>
+              <li>Collaborated with railway departments to translate requirements into UI components.</li>
+              <li>Integrated Python backend with MySQL to automate training schedule workflows.</li>
+              <li>Improved reliability via unit testing, debugging, and documentation.</li>
+            </ul>
           </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="section-title" style="margin-top: 2rem;"><i class="fas fa-code"></i> Key Projects</div>
-
-        <div class="project-item">
-          <h4>Multimodal Deepfake Detection System <span class="tech">Python · PyTorch · Flask</span></h4>
-          <p>Developed a real-time deepfake detection system using video, audio, and lip-sync analysis. Extracted features using ViT, WavLM, and SyncNet, and applied machine learning models for classification. Improved accuracy and reduced false positives using multimodal fusion and ensemble methods.</p>
-        </div>
-
-        <div class="project-item">
-          <h4>Expense Tracker Application <span class="tech">React · JS · CSS</span></h4>
-          <p>Developed a web-based application to track daily expenses and manage monthly budgets. Implemented budget alert functionality to notify users when spending exceeds limits. Designed interactive visualizations, including pie charts and bar graphs, for expense analysis.</p>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
+      <!-- projects -->
       <div>
-        <!-- Education -->
-        <div class="section-title"><i class="fas fa-university"></i> Education</div>
-        <div style="margin-bottom: 1.2rem;">
-          <div style="font-weight:600;">BE Computer Science & Engineering</div>
-          <div style="font-size:0.9rem;">Government College of Engineering, Dharmapuri</div>
-          <div style="font-size:0.85rem; color:#475569;">2022 – 2026 · CGPA 7.6/10.0</div>
+        <div class="section-title"><i class="fas fa-laptop-code"></i> Key Projects</div>
+        <div class="project-item">
+          <h4>Multimodal Deepfake Detection <span class="project-stack">Python · PyTorch · Flask</span></h4>
+          <p>Real-time deepfake detection using video, audio, lip-sync (ViT, WavLM, SyncNet). Improved accuracy &amp; reduced false positives with multimodal fusion &amp; ensemble.</p>
         </div>
-        <div style="margin-bottom: 1.2rem;">
-          <div style="font-weight:600;">Class 12th – State Board</div>
-          <div style="font-size:0.9rem;">St. Francis Xavier's HSS, Thoothukudi</div>
-          <div style="font-size:0.85rem; color:#475569;">2022 · 88.3%</div>
+        <div class="project-item">
+          <h4>Expense Tracker <span class="project-stack">React · JS · Chart.js</span></h4>
+          <p>Web-based expense tracking with budget alerts, pie charts &amp; bar graphs. Built under Naan Mudhalvan.</p>
         </div>
-        <div style="margin-bottom: 2rem;">
-          <div style="font-weight:600;">Class 10th – State Board</div>
-          <div style="font-size:0.9rem;">Bell Matriculation HSS, Thoothukudi</div>
-          <div style="font-size:0.85rem; color:#475569;">2020 · 87.8%</div>
-        </div>
-
-        <!-- Technical Skills -->
-        <div class="section-title"><i class="fas fa-microchip"></i> Skills</div>
-        <div style="margin-bottom: 1.5rem;">
-          <div style="font-weight:500; margin: 0.3rem 0 0.2rem;">Languages</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">C</span>
-            <span class="skill-tag">C++ (Basics)</span>
-          </div>
-          <div style="font-weight:500; margin: 0.8rem 0 0.2rem;">Web</div>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React.js</span>
-            <span class="skill-tag">PHP</span>
-          </div>
-          <div style="font-weight:500; margin: 0.8rem 0 0.2rem;">Database & Tools</div>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">SQL (DDL, DML)</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">Google Cloud</span>
-          </div>
-          <div style="font-weight:500; margin: 0.8rem 0 0.2rem;">Concepts</div>
-          <div class="skill-tags">
-            <span class="skill-tag">DSA</span>
-            <span class="skill-tag">OOP</span>
-            <span class="skill-tag">ML Fundamentals</span>
-          </div>
-        </div>
-
-        <!-- Certifications -->
-        <div class="section-title"><i class="fas fa-certificate"></i> Certifications</div>
-        <ul class="cert-list">
-          <li><i class="fas fa-check-circle"></i> Web Development Intern – Rail Infotech Services</li>
-          <li><i class="fas fa-check-circle"></i> Java, Python, C++ – Cybernaut Edu-Tech</li>
-          <li><i class="fas fa-check-circle"></i> Data Analytics – Google</li>
-          <li><i class="fas fa-check-circle"></i> Google Cloud Engineering – Google</li>
-          <li><i class="fas fa-check-circle"></i> Fundamentals of Deep Learning – NVIDIA</li>
-        </ul>
       </div>
-    </div>
 
-    <!-- Declaration -->
-    <div class="declaration">
-      <i class="fas fa-quote-left" style="color:#1a2f4f; opacity:0.5; margin-right: 8px;"></i>
-      I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.
-    </div>
-
-    <div class="footer-note">
-      <i class="fas fa-code"></i> built with React (CDN) · hosted on GitHub Pages · 2026
+      <!-- declaration & extra -->
+      <div style="background: #fafcfd; border-radius: 24px; padding: 1rem 1.5rem; border: 1px dashed #b9c8dd;">
+        <p style="font-style: italic; color: #1e293b; font-size:0.95rem;">
+          <i class="fas fa-quote-left" style="color:#2563eb; margin-right:6px;"></i>
+          I hereby declare that the information provided above is true and correct to the best of my knowledge.
+        </p>
+      </div>
     </div>
   </div>
+
+  <!-- footer links & repo -->
+  <div class="footer-links">
+    <div class="social-links">
+      <a href="https://github.com/Raghoo-user" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="Google Cloud"><i class="fab fa-google"></i></a>
+    </div>
+    <div class="repo-badge">
+      <i class="fas fa-code"></i> Raghoo-user/portfolio · main
+      <span style="margin-left: 8px; background: #2563eb; color:white; padding:0 8px; border-radius:20px; font-size:0.7rem;">92 deploys</span>
+    </div>
+  </div>
+
+  <!-- hidden download link for PDF (resume) -->
+  <a id="resumeDownloadLink" href="Raghool%20resume.pdf" download style="display: none;">Download</a>
 </div>
 
-<!-- React + ReactDOM (CDN) for component-based rendering, but we keep plain JS for demo -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<!-- we embed all in one file: no separate files, but we deliver as one HTML per requirement "give separate files" 
-     but we also deliver separate CSS/JS in a single page. We'll also provide a download of resume. 
-     All links are set to reference the resume, github, etc.
-  -->
 <script>
   (function() {
-    // set resume download (the file "Raghool resume.pdf" is expected in same folder)
+    // "Download CV" triggers the hidden PDF download
     const downloadBtn = document.getElementById('downloadResumeBtn');
-    if (downloadBtn) {
+    const downloadLink = document.getElementById('resumeDownloadLink');
+
+    if (downloadBtn && downloadLink) {
       downloadBtn.addEventListener('click', function(e) {
-        // we assume the file is in the same directory: "Raghool resume.pdf"
-        const link = document.createElement('a');
-        link.href = 'Raghool resume.pdf';
-        link.download = 'Raghool_resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        e.preventDefault();
+        downloadLink.click();
       });
     }
 
-    // set github profile and repo links (from the screenshots)
-    const githubProfile = document.getElementById('githubProfileLink');
-    if (githubProfile) {
-      githubProfile.href = 'https://github.com/Raghoo-user';
+    // (optional) click on repo badge redirects to GitHub
+    const repoBadge = document.querySelector('.repo-badge');
+    if (repoBadge) {
+      repoBadge.style.cursor = 'pointer';
+      repoBadge.addEventListener('click', function() {
+        window.open('https://github.com/Raghoo-user/portfolio', '_blank');
+      });
     }
-
-    const repoLink = document.getElementById('portfolioRepoLink');
-    if (repoLink) {
-      repoLink.href = 'https://github.com/Raghoo-user/portfolio';
-    }
-
-    // additional: open resume in new tab? we use download.
-    // also we want to be able to download from any button
-
-    // Quick react-like: we don't need to render with react, but we keep the file structure 
-    // for "separate files" we provide the HTML + internal CSS/JS. But we can also create an index.html
-    // as we have here.
-    console.log('Portfolio ready. Resume download, github links active.');
   })();
 </script>
 
-<!-- The same file is HTML + CSS + JS combined. To meet "separate files" we also provide a snippet 
-     but here we deliver all in one. In production, you can split into index.html, style.css, script.js 
-     and use React components if needed. But we keep it simple and professional. 
-  -->
+<!-- the link to the live preview is in the description, but i provide a console hint -->
+<!-- browser link:  https://htmlpreview.github.io/?https://raw.githubusercontent.com/Raghoo-user/portfolio/main/index.html  (if hosted) -->
 </body>
 </html>
