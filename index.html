@@ -1,608 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raghoo · Portfolio</title>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background: #f6f9fc;
-      color: #1e293b;
-      line-height: 1.6;
-      padding: 2rem 1rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-      padding: 2.5rem 2rem;
-      transition: all 0.2s;
-    }
-
-    /* header / profile row */
-    .profile-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
-      border-bottom: 2px solid #eef2f6;
-      padding-bottom: 2rem;
-    }
-
-    .profile-left {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .avatar {
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.4rem;
-      font-weight: 600;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
-      flex-shrink: 0;
-    }
-
-    .name-title h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(to right, #0f172a, #334155);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .name-title .badge {
-      background: #dbeafe;
-      color: #1e4fd9;
-      padding: 0.25rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 0.2rem;
-    }
-
-    .profile-right {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: white;
-      padding: 0.6rem 1.5rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1.5px solid #e2e8f0;
-      color: #1e293b;
-      text-decoration: none;
-      transition: 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-
-    .btn-primary {
-      background: #0f172a;
-      border: 1.5px solid #0f172a;
-      color: white;
-    }
-
-    .btn-primary i {
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1e293b;
-      border-color: #1e293b;
-      transform: scale(1.02);
-    }
-
-    .btn-outline:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-    }
-
-    /* grid layout */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2.5rem;
-      margin-top: 1rem;
-    }
-
-    /* sidebar */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .card {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 1.6rem 1.5rem;
-      border: 1px solid #e9edf2;
-      transition: 0.15s;
-    }
-
-    .card-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      font-weight: 700;
-      color: #64748b;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card-title i {
-      color: #2563eb;
-      font-size: 1rem;
-    }
-
-    .info-line {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0.4rem 0;
-      font-size: 0.95rem;
-      border-bottom: 1px solid #eef2f6;
-    }
-
-    .info-line:last-child {
-      border-bottom: none;
-    }
-
-    .info-line i {
-      width: 22px;
-      color: #2563eb;
-      font-size: 1rem;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      background: white;
-      padding: 0.2rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #1e293b;
-      border: 1px solid #dce2ea;
-      margin: 0.2rem 0.15rem;
-    }
-
-    .skill-group {
-      margin-top: 0.4rem;
-    }
-
-    .skill-group strong {
-      display: block;
-      font-size: 0.8rem;
-      color: #475569;
-      margin: 0.6rem 0 0.2rem;
-    }
-
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #0f172a;
-    }
-
-    .section-title i {
-      color: #2563eb;
-    }
-
-    .exp-item, .project-item {
-      margin-bottom: 1.8rem;
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .exp-header h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .exp-header .company {
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    .exp-date {
-      color: #64748b;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .exp-desc {
-      margin-top: 0.3rem;
-      color: #334155;
-      font-size: 0.95rem;
-      padding-left: 0.2rem;
-    }
-
-    .project-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .project-stack {
-      font-size: 0.7rem;
-      background: #e9edf2;
-      padding: 0.15rem 0.8rem;
-      border-radius: 30px;
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    .project-item p {
-      color: #475569;
-      margin-top: 0.2rem;
-      font-size: 0.95rem;
-    }
-
-    .cert-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.2rem;
-      margin-top: 0.3rem;
-    }
-
-    .cert-list li {
-      list-style: none;
-      font-size: 0.9rem;
-      background: white;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .footer-links {
-      margin-top: 2.5rem;
-      border-top: 2px solid #eef2f6;
-      padding-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .social-links a {
-      color: #334155;
-      font-size: 1.4rem;
-      transition: 0.2s;
-    }
-
-    .social-links a:hover {
-      color: #2563eb;
-      transform: translateY(-2px);
-    }
-
-    .repo-badge {
-      background: #f1f5f9;
-      border-radius: 40px;
-      padding: 0.3rem 1.2rem;
-      font-size: 0.8rem;
-      border: 1px solid #dce2ea;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    @media (max-width: 800px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      .profile-header {
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-      }
-      .profile-right {
-        width: 100%;
-        justify-content: start;
-      }
-      .container {
-        padding: 1.5rem;
-      }
-      .avatar {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-      }
-    }
-
-    .btn-download {
-      background: #0f172a;
-      color: white;
-      border: none;
-    }
-
-    .btn-download i {
-      color: white;
-    }
-
-    .btn-download:hover {
-      background: #1e293b;
-    }
-
-    .github-card {
-      background: #f1f5f9;
-      border-radius: 20px;
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      border: 1px solid #e2e8f0;
-    }
-
-    .github-stats span {
-      margin-right: 1rem;
-      font-size: 0.8rem;
-      color: #475569;
-    }
-    .github-stats i {
-      margin-right: 4px;
-      color: #2563eb;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raghool M — Computer Science Engineer</title>
+<meta name="description" content="Portfolio of Raghool M — Computer Science Engineering graduate specializing in full-stack web development and machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container" id="portfolio-root">
 
-  <!-- header -->
-  <div class="profile-header">
-    <div class="profile-left">
-      <div class="avatar">R</div>
-      <div class="name-title">
-        <h1>Raghoo · user</h1>
-        <div><span class="badge"><i class="fas fa-code"></i> Full-Stack Developer</span></div>
-        <div style="margin-top: 6px; font-size: 0.9rem; color: #475569;">
-          <i class="fas fa-map-pin" style="color: #2563eb;"></i> BE CSE · 2026
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <div class="tab-dots"><span></span><span></span><span></span></div>
+    <button class="tab active" data-target="hero">index.html</button>
+    <button class="tab" data-target="about">about.md</button>
+    <button class="tab" data-target="skills">skills.json</button>
+    <button class="tab" data-target="experience">experience.log</button>
+    <button class="tab" data-target="projects">projects/</button>
+    <button class="tab" data-target="certifications">certs.yml</button>
+    <button class="tab" data-target="contact">contact.sh</button>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="terminal">
+      <div class="terminal-titlebar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        raghool@portfolio: ~
+      </div>
+      <div class="terminal-body">
+        <p class="term-line"><span class="prompt">$</span> whoami</p>
+        <h1 class="hero-name">Raghool M<span class="cursor">&nbsp;</span></h1>
+        <p class="hero-role">// Computer Science &amp; Engineering Graduate — Full-Stack Web Developer</p>
+        <p class="hero-summary">
+          BE Computer Science graduate with hands-on experience building responsive full-stack applications,
+          a strong foundation in data structures and algorithms, and applied exposure to cloud platforms and
+          machine learning. I like turning real-world problems into working software.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="Raghool_resume.pdf" download>&#8595; Download Resume</a>
+          <a class="btn btn-ghost" href="https://github.com/Raghool-user" target="_blank" rel="noopener">GitHub Profile</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="mailto:raghoolbecse@gmail.com">Email Me</a>
         </div>
       </div>
-    </div>
-    <div class="profile-right">
-      <a href="#" class="btn btn-primary btn-download" id="downloadResumeBtn">
-        <i class="fas fa-file-pdf"></i> Download CV
-      </a>
-      <a href="https://github.com/Raghoo-user/portfolio" target="_blank" class="btn btn-outline">
-        <i class="fab fa-github"></i> Repository
-      </a>
     </div>
   </div>
+</header>
 
-  <!-- main grid -->
-  <div class="grid-2">
-    <!-- sidebar left -->
-    <div class="sidebar">
-      <!-- contact -->
-      <div class="card">
-        <div class="card-title"><i class="fas fa-address-card"></i> Contact</div>
-        <div class="info-line"><i class="fas fa-envelope"></i> raghoo.user@edu.in</div>
-        <div class="info-line"><i class="fas fa-phone-alt"></i> +91 98765 43210</div>
-        <div class="info-line"><i class="fab fa-github"></i> Raghoo-user</div>
-        <div class="info-line"><i class="fab fa-linkedin"></i> raghoo-dev</div>
-        <div class="info-line"><i class="fas fa-map-marker-alt"></i> Thoothukudi, IN</div>
+<section class="section reveal" id="about">
+  <div class="wrap">
+    <span class="file-tab">about<span class="ext">.md</span></span>
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="section-sub">// a short read on who I am</p>
+    <p style="color:var(--text-dim); max-width: 68ch; font-size: 15.5px;">
+      BE Computer Science and Engineering graduate with hands-on experience in full-stack web development,
+      strong knowledge of data structures and algorithms, and exposure to cloud platforms and machine
+      learning fundamentals. Skilled at building responsive web applications and applying analytical
+      thinking to solve real-world technical problems.
+    </p>
+
+    <div style="margin-top:28px;">
+      <div class="edu-item">
+        <p class="edu-degree">Bachelor of Engineering, Computer Science and Engineering</p>
+        <p class="edu-school">Government College of Engineering, Dharmapuri</p>
+        <p class="edu-meta">2022 – 2026 &nbsp;·&nbsp; CGPA 7.6 / 10.0</p>
       </div>
-
-      <!-- education -->
-      <div class="card">
-        <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
-        <div><strong>BE CSE</strong> · 2022-2026</div>
-        <div style="font-size:0.9rem; color: #334155;">Govt. College of Engg, Dharmapuri</div>
-        <div style="font-weight:600; margin-top: 4px;">CGPA: 7.6 / 10.0</div>
-        <div style="margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
-          <div><strong>Class 12th</strong> 88.3% (State Board)</div>
-          <div><strong>Class 10th</strong> 87.8% (State Board)</div>
-        </div>
+      <div class="edu-item">
+        <p class="edu-degree">Class 12th — State Board</p>
+        <p class="edu-school">St. Francis Xavier's Higher Secondary School, Thoothukudi</p>
+        <p class="edu-meta">2022 &nbsp;·&nbsp; 88.3%</p>
       </div>
+      <div class="edu-item">
+        <p class="edu-degree">Class 10th — State Board</p>
+        <p class="edu-school">Bell Matriculation Higher Secondary School, Thoothukudi</p>
+        <p class="edu-meta">2020 &nbsp;·&nbsp; 87.8%</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- skills compact -->
-      <div class="card">
-        <div class="card-title"><i class="fas fa-cog"></i> Tech Stack</div>
-        <div class="skill-group">
-          <strong>Languages</strong>
-          <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C</span><span class="skill-tag">C++</span>
-        </div>
-        <div class="skill-group">
-          <strong>Web</strong>
-          <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JS</span><span class="skill-tag">React</span><span class="skill-tag">PHP</span>
-        </div>
-        <div class="skill-group">
-          <strong>Database</strong>
-          <span class="skill-tag">MySQL</span><span class="skill-tag">SQL</span><span class="skill-tag">RDBMS</span>
-        </div>
-        <div class="skill-group">
-          <strong>Tools</strong>
-          <span class="skill-tag">Git</span><span class="skill-tag">VS Code</span><span class="skill-tag">GCP</span>
-        </div>
-        <div class="skill-group">
-          <strong>Concepts</strong>
-          <span class="skill-tag">DSA</span><span class="skill-tag">OOP</span><span class="skill-tag">ML fundamentals</span>
+<section class="section reveal" id="skills">
+  <div class="wrap">
+    <span class="file-tab">skills<span class="ext">.json</span></span>
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-sub">// $ ls -la skills/</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++ (Basics)</span>
         </div>
       </div>
-
-      <!-- certifications -->
-      <div class="card">
-        <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
-        <ul class="cert-list">
-          <li>Web Dev Intern · Rail Infotech</li>
-          <li>Java, Python, C++ · Cybernaut</li>
-          <li>Data Analytics · Google</li>
-          <li>Google Cloud Eng. · Google</li>
-          <li>Deep Learning · NVIDIA</li>
-        </ul>
+      <div class="skill-group">
+        <h3>Web Technologies</h3>
+        <div class="tag-row">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">PHP</span>
+        </div>
       </div>
-
-      <!-- github dashboard context -->
-      <div class="card" style="background: #eef4ff; border-color: #c7d9ff;">
-        <div class="card-title"><i class="fab fa-github"></i> GitHub Activity</div>
-        <div class="github-card">
-          <span><i class="fas fa-code-branch"></i> 1 branch</span>
-          <span><i class="fas fa-tag"></i> 0 releases</span>
-          <span><i class="fas fa-star"></i> 0 stars</span>
-          <span><i class="fas fa-eye"></i> 0 watching</span>
+      <div class="skill-group">
+        <h3>Database</h3>
+        <div class="tag-row">
+          <span class="tag">MySQL</span><span class="tag">SQL (DDL/DML/Joins)</span><span class="tag">RDBMS</span>
         </div>
-        <div style="margin-top: 10px; font-size:0.9rem; background:white; padding:0.4rem 0.8rem; border-radius:40px; border:1px solid #dce2ea;">
-          <i class="fas fa-cloud-upload-alt" style="color:#2563eb;"></i> Deployments: 92
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="tag-row">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Google Cloud Platform</span>
         </div>
-        <div style="margin-top: 8px; font-size:0.8rem; color:#475569;">
-          <i class="fas fa-folder-open"></i> portfolio · Raghoo-user
+      </div>
+      <div class="skill-group">
+        <h3>Concepts</h3>
+        <div class="tag-row">
+          <span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span><span class="tag">ML Fundamentals</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- main right -->
-    <div class="main-content">
-      <!-- summary -->
-      <div>
-        <div class="section-title"><i class="fas fa-user-astronaut"></i> Professional Summary</div>
-        <p style="background: #f1f6fe; padding: 1.2rem 1.5rem; border-radius: 24px; border-left: 6px solid #2563eb; color: #1e293b;">
-          BE Computer Science graduate with hands-on full-stack development, DSA, cloud & ML fundamentals.
-          Passionate about building responsive web apps and solving real-world problems.
-        </p>
-      </div>
-
-      <!-- experience -->
-      <div>
-        <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <h3>Web Developer Intern <span class="company">· Rail Infotech (Southern Railway)</span></h3>
-            <span class="exp-date">Jun 2025 – Aug 2025</span>
-          </div>
-          <div class="exp-desc">
-            <ul style="padding-left: 1.2rem; list-style: disc;">
-              <li>Built responsive internal interfaces with HTML5 & Bootstrap for Quarters Management.</li>
-              <li>Collaborated with railway departments to translate requirements into UI components.</li>
-              <li>Integrated Python backend with MySQL to automate training schedule workflows.</li>
-              <li>Improved reliability via unit testing, debugging, and documentation.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- projects -->
-      <div>
-        <div class="section-title"><i class="fas fa-laptop-code"></i> Key Projects</div>
-        <div class="project-item">
-          <h4>Multimodal Deepfake Detection <span class="project-stack">Python · PyTorch · Flask</span></h4>
-          <p>Real-time deepfake detection using video, audio, lip-sync (ViT, WavLM, SyncNet). Improved accuracy &amp; reduced false positives with multimodal fusion &amp; ensemble.</p>
-        </div>
-        <div class="project-item">
-          <h4>Expense Tracker <span class="project-stack">React · JS · Chart.js</span></h4>
-          <p>Web-based expense tracking with budget alerts, pie charts &amp; bar graphs. Built under Naan Mudhalvan.</p>
-        </div>
-      </div>
-
-      <!-- declaration & extra -->
-      <div style="background: #fafcfd; border-radius: 24px; padding: 1rem 1.5rem; border: 1px dashed #b9c8dd;">
-        <p style="font-style: italic; color: #1e293b; font-size:0.95rem;">
-          <i class="fas fa-quote-left" style="color:#2563eb; margin-right:6px;"></i>
-          I hereby declare that the information provided above is true and correct to the best of my knowledge.
+<section class="section reveal" id="experience">
+  <div class="wrap">
+    <span class="file-tab">experience<span class="ext">.log</span></span>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">// $ git log --oneline --graph</p>
+    <div class="gitlog">
+      <div class="commit">
+        <p class="commit-hash">commit 8f3a1c2</p>
+        <p class="commit-meta">Web Developer Intern · Rail Infotech Services (Southern Railway) · Jun 2025 – Aug 2025</p>
+        <p class="commit-title">Streamlined the Quarters Management System</p>
+        <p class="commit-body">
+          Spearheaded development of responsive internal web interfaces using HTML5 and Bootstrap.
+          Collaborated with cross-functional railway departments to translate complex user requirements
+          into functional UI components. Integrated Python-based backend logic with relational databases
+          to automate training schedule workflows, and improved platform reliability through unit testing,
+          debugging, and technical documentation for mission-critical intranet applications.
         </p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- footer links & repo -->
-  <div class="footer-links">
-    <div class="social-links">
-      <a href="https://github.com/Raghoo-user" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" target="_blank" aria-label="Google Cloud"><i class="fab fa-google"></i></a>
+<section class="section reveal" id="projects">
+  <div class="wrap">
+    <span class="file-tab">projects<span class="ext">/</span></span>
+    <h2 class="section-title">Key Projects</h2>
+    <p class="section-sub">// $ ls projects/</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3 class="project-name">multimodal-deepfake-detection</h3>
+        <p class="project-desc">
+          Real-time deepfake detection system combining video, audio, and lip-sync analysis. Features
+          extracted with ViT, WavLM, and SyncNet, classified through a multimodal fusion and ensemble
+          pipeline for improved accuracy and fewer false positives.
+        </p>
+        <span class="diff-add">Python · PyTorch · Scikit-learn</span>
+        <span class="diff-add">Flask · OpenCV · Transformers</span>
+        <div class="project-links">
+          <a href="https://github.com/Raghool-user" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-name">expense-tracker-app</h3>
+        <p class="project-desc">
+          Web application (built as part of Naan Mudhalvan) to track daily expenses and manage monthly
+          budgets, with alerts when spending exceeds limits and interactive pie/bar chart visualizations
+          for expense analysis.
+        </p>
+        <span class="diff-add">HTML · CSS · JavaScript</span>
+        <span class="diff-add">React.js</span>
+        <div class="project-links">
+          <a href="https://github.com/Raghool-user" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+
     </div>
-    <div class="repo-badge">
-      <i class="fas fa-code"></i> Raghoo-user/portfolio · main
-      <span style="margin-left: 8px; background: #2563eb; color:white; padding:0 8px; border-radius:20px; font-size:0.7rem;">92 deploys</span>
+    <p style="font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-top:16px;">
+      note: project links point to my GitHub profile — add the individual repo URLs here once they're pushed.
+    </p>
+  </div>
+</section>
+
+<section class="section reveal" id="certifications">
+  <div class="wrap">
+    <span class="file-tab">certs<span class="ext">.yml</span></span>
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-sub">// verified credentials</p>
+    <ul class="cert-list">
+      <li class="cert-item">
+        <div>
+          <div class="cert-name">Web Development Intern</div>
+          <div class="cert-issuer">Rail Infotech Services, Southern Railways</div>
+        </div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1MISNt9DlH9hVT7BsPmfspUeJs3iGlFIi/view?usp=drivesdk" target="_blank" rel="noopener">View →</a>
+      </li>
+      <li class="cert-item">
+        <div>
+          <div class="cert-name">Java, Python, C++</div>
+          <div class="cert-issuer">Cybernaut Edu-Tech</div>
+        </div>
+        <a class="cert-link" href="https://drive.google.com/drive/folders/14pVPoB01VUjm4phO3xTOur6jFaJNzLk6" target="_blank" rel="noopener">View →</a>
+      </li>
+      <li class="cert-item">
+        <div>
+          <div class="cert-name">Data Analytics</div>
+          <div class="cert-issuer">Google</div>
+        </div>
+        <a class="cert-link" href="https://drive.google.com/file/d/183qHWYaWw6d-NwttHHcPaXCz5t5FjgdD/view?usp=drivesdk" target="_blank" rel="noopener">View →</a>
+      </li>
+      <li class="cert-item">
+        <div>
+          <div class="cert-name">Google Cloud Engineering</div>
+          <div class="cert-issuer">Google</div>
+        </div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1qUI9AIGEchuUkNd2U8DLud6oK-Q4GS2Y/view?usp=drivesdk" target="_blank" rel="noopener">View →</a>
+      </li>
+      <li class="cert-item">
+        <div>
+          <div class="cert-name">Fundamentals of Deep Learning</div>
+          <div class="cert-issuer">NVIDIA</div>
+        </div>
+        <a class="cert-link" href="https://learn.nvidia.com/certificates?id=i-TSqtoxSNCw6MYWUJHLWQ" target="_blank" rel="noopener">View →</a>
+      </li>
+    </ul>
+    <p style="font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-top:16px;">
+      note: cert links were matched to entries in the order they appear in your resume PDF — worth a quick double-check.
+    </p>
+  </div>
+</section>
+
+<section class="section reveal" id="contact">
+  <div class="wrap">
+    <span class="file-tab">contact<span class="ext">.sh</span></span>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">// $ ./contact.sh --send</p>
+    <div class="contact-block">
+      <div class="contact-row"><span class="k">email</span> &nbsp;→&nbsp; <a class="v" href="mailto:raghoolbecse@gmail.com">raghoolbecse@gmail.com</a></div>
+      <div class="contact-row"><span class="k">phone</span> &nbsp;→&nbsp; <span class="v">+91 8608383248</span></div>
+      <div class="contact-row"><span class="k">linkedin</span> &nbsp;→&nbsp; <a class="v" href="https://linkedin.com/in/raghool-m-45a39a38a" target="_blank" rel="noopener">linkedin.com/in/raghool-m-45a39a38a</a></div>
+      <div class="contact-row"><span class="k">github</span> &nbsp;→&nbsp; <a class="v" href="https://github.com/Raghool-user" target="_blank" rel="noopener">github.com/Raghool-user</a></div>
+      <div class="contact-row"><span class="k">location</span> &nbsp;→&nbsp; <span class="v">Thoothukudi, Tamil Nadu, India</span></div>
     </div>
   </div>
+</section>
 
-  <!-- hidden download link for PDF (resume) -->
-  <a id="resumeDownloadLink" href="Raghool%20resume.pdf" download style="display: none;">Download</a>
-</div>
+<footer>
+  built by Raghool M &nbsp;·&nbsp; deployed via GitHub Pages
+</footer>
 
-<script>
-  (function() {
-    // "Download CV" triggers the hidden PDF download
-    const downloadBtn = document.getElementById('downloadResumeBtn');
-    const downloadLink = document.getElementById('resumeDownloadLink');
-
-    if (downloadBtn && downloadLink) {
-      downloadBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        downloadLink.click();
-      });
-    }
-
-    // (optional) click on repo badge redirects to GitHub
-    const repoBadge = document.querySelector('.repo-badge');
-    if (repoBadge) {
-      repoBadge.style.cursor = 'pointer';
-      repoBadge.addEventListener('click', function() {
-        window.open('https://github.com/Raghoo-user/portfolio', '_blank');
-      });
-    }
-  })();
-</script>
-
-<!-- the link to the live preview is in the description, but i provide a console hint -->
-<!-- browser link:  https://htmlpreview.github.io/?https://raw.githubusercontent.com/Raghoo-user/portfolio/main/index.html  (if hosted) -->
+<script src="script.js"></script>
 </body>
 </html>
